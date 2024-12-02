@@ -65,7 +65,7 @@ main {
     padding: 20px;
     max-width: 800px;
     margin: auto;
-    background: #333; /* #fff; */
+    background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
