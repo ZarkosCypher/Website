@@ -1,83 +1,77 @@
-
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
+/* General reset */
+body, html {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
 }
 
-/* Header */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Header and content */
 header {
-    background: #333;
-    color: #fff;
-    padding: 20px 0;
     text-align: center;
+    padding: 2rem 0;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5em;
+    font-size: 3rem;
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    color: #00ff00; /* Hackery green */
 }
 
 /* Navigation */
-nav {
-    background: #555;
-    padding: 10px 0;
-}
-
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     justify-content: center;
+    list-style: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.8);
 }
 
-nav ul li {
-    margin: 0 15px;
+nav li {
+    margin: 0 1rem;
 }
 
-nav ul li a {
-    color: #fff;
+nav a {
     text-decoration: none;
+    color: #00ff00;
     font-weight: bold;
 }
 
-/* Main Content */
-main {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Trippy animation dots */
+.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #00ff00;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fade 2s infinite;
 }
 
-main section {
-    margin-bottom: 40px;
-}
-
-main h2 {
-    color: #333;
-    border-bottom: 2px solid #555;
-    padding-bottom: 5px;
-}
-
-main ul {
-    list-style: square inside;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+@keyframes fade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
 }
