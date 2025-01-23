@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZarkosCypher Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+	
+	<nav>
+        <ul>
+			<div class="home">
+				<li><a href="index.html">ZarkosCypher</a></li>
+			</div>
+			<div class="options">
+				<li><a href="#about">Not Done</a></li>
+				<li><a href="WriteUp.html">WriteUp's</a></li>
+				<li><a href="Donate.html">Donate</a></li>
+			</div>
+		</ul>
+    </nav>
+</head>
+
+<body>
+	<main>
+		<p class="crypto-address"><strong>Support Me With XMR! Monero Donation Address:</strong> 83rBzQSTLDh8Bq248T2EizKfq4TPhqhFeJ96EUUB3uZQ1NUci2mfGhZg7mWdCWLtwoQ5QyUPzzNVV9CWNQrfszvp1TEXi64</p>
+		<button class="donate-button" data-address="83rBzQSTLDh8Bq248T2EizKfq4TPhqhFeJ96EUUB3uZQ1NUci2mfGhZg7mWdCWLtwoQ5QyUPzzNVV9CWNQrfszvp1TEXi64">
+			<img src="assets/img/XMRdonateAddress.png" alt="XMR QR Code" style="width: 150px; height: 150px;"> </button>
+		
+		<p class="crypto-address"><strong>Support Me With BTC! Bitcoin Donation Address:</strong> bc1qlemzzjl3n9yxsg027wx2qywdy0tt0x22xwvyt9</p>
+		<button class="donate-button" data-address="bc1qlemzzjl3n9yxsg027wx2qywdy0tt0x22xwvyt9">
+			<img src="assets/img/BTCdonateAddress.png" alt="BTC QR Code" style="width: 150px; height: 150px;"> </button>
+		
+	</main>
+</body>
+	
+	<script>
+	//Donate Button
+		// Add event listener to all donation buttons
+		document.querySelectorAll('.donate-button').forEach(button => {
+			button.addEventListener('click', (event) => {
+			  const address = button.getAttribute('data-address'); // Get the address from the data attribute
+			  copyToClipboard(event, address, "Address copied to clipboard!");
+			});
+		});
+
+		// Function to copy the address to clipboard
+		function copyToClipboard(event, text, message) {
+			navigator.clipboard.writeText(text)
+			.then(() => {
+				showTooltip(event, message);
+			})
+			.catch(err => {
+				console.error("Failed to copy text:", err);
+			});
+		}
+
+		// Function to show a tooltip
+		function showTooltip(event, message) {
+			const tooltip = document.createElement('div');
+			tooltip.className = 'tooltip';
+			tooltip.textContent = message;
+
+			document.body.appendChild(tooltip);
+			const tooltipWidth = 100;
+			tooltip.style.left = `${event.pageX - tooltipWidth / 2}px`;
+			tooltip.style.top = `${event.pageY - 30}px`;
+
+			requestAnimationFrame(() => {
+			  tooltip.style.opacity = 1;
+			});
+
+			setTimeout(() => {
+			  tooltip.style.opacity = 0;
+			  tooltip.addEventListener('transitionend', () => tooltip.remove());
+			}, 2000);
+		}
+	</script>
+
+
+	<footer>
+		<p>&copy; 2024 ZarkosCypher. All rights reserved.</p>
+		<a href="https://tryhackme.com/p/ZarkosCypher"><img src="https://tryhackme-badges.s3.amazonaws.com/ZarkosCypher.png" alt="Try Hack Me" width="auto" height="40px"></a>
+		<a href="https://app.hackthebox.com/profile/1622110"><img src="http://www.hackthebox.com/badge/image/1622110" alt="Hack The Box" width="auto" height="40px"></a> 
+		<a href="https://github.com/ZarkosCypher"><img src="assets/img/GitHub-logo.png" alt="GitHub" width="auto" height="40px"></a> 
+		<a href="https://x.com/ZarkosCypher"><img src="assets/img/twitter-logo.png" alt="Twitter / X" width="auto" height="40px"></a>
+	</footer>
+
+</html>

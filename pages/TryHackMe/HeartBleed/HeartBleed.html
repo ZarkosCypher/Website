@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZarkosCypher Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="../../../assets/css/writeup.css">
+	
+	<nav>
+        <ul>
+			<div class="home">
+				<li><a href="../../../index.html">ZarkosCypher</a></li>
+			</div>
+			<div class="options">
+				<li><a href="#about">Not Done</a></li>
+				<li><a href="../../../WriteUp.html">WriteUp's</a></li>
+				<li><a href="../../../Donate.html">Donate!</a></li>
+			</div>
+		</ul>
+    </nav>
+	</head>
+
+
+
+
+
+    <body>
+		<main>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/HeartBleed.png" alt="!HeartBleedLogo!"> 
+			<h1>HeartBleed Walkthough</h1>
+			<p>Try Hack Me Link: <a href="https://tryhackme.com/r/room/heartbleed">https://tryhackme.com/r/room/heartbleed</a></p>
+			<p>Completed: 2024-12-27</p>
+			<h2>Intro</h2>
+			<p>Hello! This is my very first writeup! Today I will be walking you through how I solved the HeartBleed room. If you want to get to know more about me, feel free to go to the About Me section of the page!</p>
+			<h2>Room</h2>
+			<p>So at the beginning of the room we are told briefly about SSL/TLS, which is used everywhere more or less being an encrypting wrapper for traffic of any sort. Then it talks more about the HeartBleed bug itself, if you are interested I left the room intro below so feel free to read through!</p>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/HeartBleedInfo1.png" alt="!Room Info!" >
+			<img src="../../../pages/TryHackMe/HeartBleed/img/HeartBleedInfo2.png" alt="!Continuation Of Room Info!">
+			<h2>Enumerating</h2>
+			<p> Let's start with a Nmap scan of the IP with just the <code>--scripts vuln</code> flags. I did this because it will scan all top 1000 ports and run vulnerability scanning scripts on them to let us know if there are any easily identified vulnerable ports without needing to do Google Foo to find vulnerabilities with the service versions. Most of the time it should flat-out say if it's vulnerable and what the well-known vulnerability is.</p>
+			<p><code>nmap [ip] --script vuln</code></p>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/1.png" alt="!Nmap Scan!">
+			<p>Great after running the script it looks like there are a few results that catch my eye. Right away I saw that port 443, meaning this server is an HTTPS server. It is the one that came out with the most successful vulnerabilities identified. If we look through the data we can see it says the Heartbleed bug! Nmap also provided some additional data, it says it's vulnerable and the risk factor is high, which is not good. If the risk factor is high it is very likely that it's easy to exploit and it won't be difficult for any attacker. Meaning we, us the attackers are going to have a very easy exploit!</p>
+			<h2>Exploitation</h2>
+			<p> Right away let's see if Metasploit has a nice easy to use automated exploit for us!</p>
+			<p>If we boot up metasploit, <code>msfconfig</code> we can search for Heartbleed, <code>search heartbleed</code>. Since it's an old exploit there will most likely be a nice premade battle-tested module.</p>
+			<p> And I was right, it looks like there are a few auxiliary modules, and it comes with a dump option to dump the server's memory. *side note auxiliary modules are not used for exploitation but rather perform tasks like scanning, enumeration, sniffing DoS, and of course in this case that means dumping data.</p>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/2.png" alt="!Metasploit Search!">
+			<p>We can select the module by runing <code>use 5</code>. Then to view the options that have to be set we can run <code>options</code> anything that says yes under required is required so let's fill in that info. Everything should be set by default and you should only need to put in the IP address we can do that by running <code>set RHOSTS [IP]</code>, we can run options again and make sure everything is set as it should be. Then we can run <code>run</code> or <code>exploit</code> if we want to be Mr. Hacker hacked into the mainframe cool man.</p>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/3.png" alt="!Meatsploit Auxilery Dump!">
+			<h2>Finding The Flag!</h2>
+			<p> It looks like it ran successfully, and our file has been stored in <code>/root/.msf4/loot/20241227180430_default_3.254.200.174_openssl.heartble_878837.bin</code> we could just cat out the file and scroll through and find the flag, and we do see it right away. But what if it was a situation where there's a lot of data and we have a lot of scrolling to do, we could easily miss it!<p/>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/4.png" alt="!Finding The Flag File!">
+			<p>So let's use grep to find things in the file! We can send all the data to a text file so Grep won't yell at us. We can do that by running <code>cat /root/.msf4/loot/20241227180430_default_3.254.200.174_openssl.heartble_878837.bin > [name it anything].text</code>, then we can run the cat command again followed by piping grep, but we must include the <code>-a</code> flag telling grep to treat the binary file as a text file. We can run <code>cat [file name].text | grep -a "THM{"</code> I included what happens when we don't run the -a command to show what we, in fact, did need the <code>-a</code> flag.</p>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/5.png" alt="!Greping The Flag!">
+			<p>And finally we paste in our flag!</p>
+			<img src="../../../pages/TryHackMe/HeartBleed/img/HeartBleedFlags.png" alt="!Flag!">
+			<p> Congratulations we have completed the Try Hack Me Heartbleed room, and I hope you enjoyed my first Walkthrough!</p>
+			
+		</main>
+	</body>
+</html>

