@@ -123,6 +123,9 @@ main ul {
 .mainpage {
 	flex: 2;
 	padding: 20px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	max-width: 60%;
 }
 
 
@@ -149,7 +152,7 @@ footer img {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	margin: 10px auto;
-	max-widtch: 90%;
+	max-width: 90%;
 	text-align: center;
 }
 
