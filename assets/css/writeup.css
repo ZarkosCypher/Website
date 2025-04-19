@@ -123,6 +123,18 @@ code {
 	font-size: 1rem;
 }
 
+keyboard {
+	color: #0F0;
+	background-color: #1f41a8;
+	padding: 1px;
+	border: 1px solid #000;
+	border-radius: 8px;
+	font-family: monospace;
+	overflow-x: auto;
+	font-weight: 999;
+	font-size: 1rem;
+}
+
 /* Footer */
 footer {
     background: #0F100D;
