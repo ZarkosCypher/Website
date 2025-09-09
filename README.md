@@ -61,7 +61,7 @@ Inline `code`
 ```python
 def hello():
     print("Hello, world!")
-
+```
 
 ---
 ## 📌 **Collapsible Sections**
@@ -70,7 +70,7 @@ def hello():
   <summary>Click to expand</summary>
   Hidden content here!
 </details>
-
+---
 
 
 diagrams with mermaid
