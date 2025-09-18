@@ -3,7 +3,7 @@
 This is a website I coded in notepad and it is suposed to act as a portfolio for my self as well as a place for writeups that people can follow along with!
 
 
-##examples of diffrent ways to style a github readme.md page
+## examples of diffrent ways to style a github readme.md page
 
 **bold text**
 *italic text*
